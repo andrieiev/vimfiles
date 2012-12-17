@@ -326,11 +326,11 @@ if has("gui_running")
   set guioptions-=l " no scrollbar on the left
   set guioptions-=b " no scrollbar on the bottom
   set guioptions=aiA 
-  set mouse=v
+  set mouse=a
 endif
 
 let g:Powerline_symbols = 'fancy'
-set guifont=Menlo\ for\ Powerline\ 9
+set guifont=Terminus\ for\ Powerline\ 10
 
 
 
