@@ -360,3 +360,5 @@ endif
 " When vimrc, either directly or via symlink, is edited, automatically reload it
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
+
+au BufWritePost *.rb,*.js,*.coffee silent! !ctags -R &
