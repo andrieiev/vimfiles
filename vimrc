@@ -346,7 +346,7 @@ let Tlist_Ctags_Cmd = 'ctags'
 
 " Make Vim use RVM correctly when using Zsh
 " https://rvm.beginrescueend.com/integration/vim/
-set shell=/bin/sh
+set shell=/bin/zsh
 
 " Finally, load custom configs
 if filereadable(my_home . '.vimrc.local')
@@ -362,3 +362,58 @@ autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
 
 au BufWritePost *.rb,*.js,*.coffee silent! !ctags -R &
+
+
+" ----------------------------------------------------------------------------
+"  Run Tests
+" ----------------------------------------------------------------------------
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  :w
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+  if match(a:filename, '\.feature') != -1
+    exec ":!bundle exec spinach " . a:filename
+  else
+    if filereadable("script/test")
+      exec ":!script/test " . a:filename
+    elseif match(a:filename, '_test\.rb') != -1
+      exec ":!ruby -I'lib:test' " . a:filename
+    elseif match(a:filename, '_spec\.rb') != -1
+      exec ":!bundle exec rspec --color --drb " . a:filename
+    end
+  end
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+  " Run the tests for the previously-marked file.
+  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\|_test.rb\)$') != -1
+  if in_test_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file . command_suffix)
+endfunction
+
+function! RunNearestTest()
+  let spec_line_number = line('.')
+  call RunTestFile(":" . spec_line_number)
+endfunction
+
+map <leader>t :call RunTestFile()<CR>
+map <leader>T :call RunNearestTest()<CR>
