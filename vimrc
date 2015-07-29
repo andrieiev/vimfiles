@@ -306,6 +306,9 @@ au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,
 
 let coffee_compile_vert = 1
 au BufNewFile,BufReadPost *.coffee setl foldmethod=manual
+au BufNewFile,BufRead *.es6 set filetype=javascript
+" au BufNewFile,BufRead *.jade set filetype=jade
+
 
 "  ---------------------------------------------------------------------------
 "  SASS / SCSS

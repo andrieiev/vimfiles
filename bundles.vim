@@ -1,8 +1,8 @@
 set nocompatible               " be iMproved
 
-" if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
-"   !git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-" endif
+if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+  !git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+endif
 
 filetype off                   " must be off before Vundle has run
 
@@ -30,7 +30,6 @@ Bundle "godlygeek/tabular.git"
 Bundle "vim-scripts/Gist.vim.git"
 Bundle "vim-scripts/L9.git"
 Bundle "Bogdanp/rbrepl.vim.git"
-Bundle "rson/vim-conque.git"
 Bundle 'git://git.wincent.com/command-t.git'
 Bundle "gmarik/snipmate.vim.git"
 Bundle "krisleech/snipmate-snippets.git"
@@ -50,6 +49,8 @@ Bundle "tpope/vim-bundler.git"
 Bundle "Lokaltog/vim-powerline"
 Bundle 'sjl/badwolf'
 Bundle 'tomasr/molokai'
+Bundle 'othree/yajs.vim'
+Bundle 'digitaltoad/vim-jade'
 
 filetype plugin indent on     " and turn it back on!
 
