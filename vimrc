@@ -205,6 +205,7 @@ map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 
 let g:CommandTMaxHeight = 20
+let g:CommandTWildIgnore= "node_modules/**,bower_components/**,doc/**,log/**,tmp/**,coverage/**"
 
 " NERDTree
 let NERDTreeShowBookmarks = 0
@@ -364,7 +365,7 @@ endif
 autocmd! bufwritepost .vimrc source %
 autocmd! bufwritepost vimrc source %
 
-au BufWritePost *.rb,*.js,*.coffee silent! !ctags -R &
+au BufWritePost *.rb,*.js,*.coffee,*.go,*.es6 silent! !ctags -R &
 
 
 " ----------------------------------------------------------------------------
