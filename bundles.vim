@@ -51,6 +51,7 @@ Bundle 'sjl/badwolf'
 Bundle 'tomasr/molokai'
 Bundle 'othree/yajs.vim'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on     " and turn it back on!
 
