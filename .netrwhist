@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers/api/v1'
+let g:netrw_dirhist_2='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers/api'
+let g:netrw_dirhist_3='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers'
+let g:netrw_dirhist_4='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers/q'
+let g:netrw_dirhist_5='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers'
+let g:netrw_dirhist_6='/Users/lazyuser/projects/QuickBlox/LiveLuvo'
+let g:netrw_dirhist_7='/Users/lazyuser/projects/QuickBlox/LiveLuvo/app/controllers'
+let g:netrw_dirhist_8='/Users/lazyuser/projects/QuickBlox/LiveLuvo'
