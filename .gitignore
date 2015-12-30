@@ -1,4 +1,5 @@
 bundle
+.netrwhist
 .DS_Store
 eclim
 plugin
