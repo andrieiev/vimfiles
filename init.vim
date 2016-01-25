@@ -77,7 +77,7 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+" let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
 
 
@@ -135,7 +135,9 @@ set cursorline " highlight line with cursor
 syntax enable
 
 colorscheme OceanicNext
+
 set background=dark
+
 let g:airline_theme='oceanicnext'
 let g:airline_powerline_fonts=1
 
