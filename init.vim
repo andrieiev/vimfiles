@@ -20,7 +20,7 @@ NeoBundle 'mhartington/oceanic-next'
 NeoBundle 'jscappini/material.vim' " theme
 NeoBundle 'flazz/vim-colorschemes' "themes pack
 NeoBundle 'bling/vim-airline' " status line
-NeoBundle 'Yggdroot/indentLine'
+" NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Valloric/MatchTagAlways'
 
