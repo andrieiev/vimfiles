@@ -1,16 +1,14 @@
-# Ruby/Rails centric neovim files
+# NeoVim configuration files
 
 ## Requirements
 
 NeoVim
 The Silver Searcher (http://geoff.greer.fm/ag/)
-Ctags exuberant
-
-Tested on MacOS (with Neovim.app)
+Universal Ctags
 
 ## Quick Install
 
-    curl https://raw.github.com/XsErG/vimfiles/master/bootstrap.sh -o - | sh
+    curl https://raw.github.com/andrieiev/vimfiles/master/bootstrap.sh -o - | sh
 
 ## Basic Mappings
 
@@ -30,9 +28,9 @@ The leader is mapped to `,`
 
 `,l`     - Show tags (Tagbar)
 
-`//`     - Toggle comments (T-Comment)
+`//`     - Toggle comments (NERDCommenter)
 
-`F5`     - Undo history (GUndo)
+`F5`     - Undo history (UndoTree)
 
 `,,`     - Toggle between last two buffers
 
@@ -58,23 +56,29 @@ See `~/.config/nvim/init.vim` for more.
 
 ## Plugins
 
+### CtrlP
+
+`<c-j>`,`<c-k>` - navigate in the list
+`F5` - purge cache
+`<c-f>`, `<c-b>` - switch between modes (files, buffers, most recently used)
+`<c-d>` - switch to filename search instead of full path.
+`<c-r>` - regexp mode
+
+`<c-t>` - open file in new tab
+`<c-v>`, `<c-x>` - open file in split (vertical, horisontal)
+
+`<c-z>` - select files in list and `<c-o>` to open them in vertical splits
+
+
 ### rails            
 
 *Lots* of stuff - get to know this plugin!
 
-`:Rmodel` - jump to model
+`:Emodel` - jump to model
 
-`:Rview` - jump to view
+`:Eview` - jump to view
 
 `:help rails`
-
-### coffee-script
-
-CoffeeScript support
-
-`:CoffeeCompile watch` show compiled js in split
-
-https://github.com/kchmck/vim-coffee-script
 
 ### fugitive         
 
@@ -92,11 +96,9 @@ http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/
 
 Add RVM integration
 
-### gundo (`F5`)
+### UndoTree(`F5`)
 
 Navigate changes history tree 
-
-http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
 
 ### tabular
 
@@ -104,10 +106,9 @@ Align stuff
 
 http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
 
-### tcomment (`//`)
+### NERDCommenter (`//`)
 
 Comment/Uncomment stuff out
-
 
 ### nerdtree (`,p`)             
 
@@ -120,9 +121,6 @@ Project file browser
 `m` menu to move/delete/copy files/folders
 
 `?` Help
-
-I use nerdtree for creating or moving files, but find command-t quicker for
-opening files.
 
 ### surround (`ys`/`cs`/`ds`)
 
@@ -152,24 +150,8 @@ correct text object or motion.
 
 `cst<div>` - change surround tag to `<div>`
 
-### syntastic
-
-Syntax checking
-
-When a file is saved the syntax is automatically checked and any errors
-reported.
-
-### vundle
-
-Plugin manager and part of the reason why my vimfiles as so compact
-
 ## Helpful Stuff
 
 - http://neovim.io
-- http://github.com/krisleech/vimfiles/wiki
-- http://walking-without-crutches.heroku.com/image/images/vi-vim-cheat-sheet.png
-- http://yehudakatz.com/2010/07/29/everyone-who-tried-to-convince-me-to-use-vim-was-wrong/
-- http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118
-- http://stevelosh.com/blog/2010/09/coming-home-to-vim/#important-vimrc-lines
 - `:help key-notation`
 - http://vimcasts.org/

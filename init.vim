@@ -1,87 +1,94 @@
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=$HOME/.config/nvim/bundle/neobundle.vim/
+" dein.vim config
+if &compatible
+  set nocompatible               " Be iMproved
 endif
 
 " Required:
-call neobundle#begin(expand('~/.config/nvim/bundle'))
+set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
-" Let NeoBundle manage NeoBundle
 " Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+if dein#load_state("$HOME/.cache/dein")
+  call dein#begin("$HOME/.cache/dein")
 
-" Add or remove your Bundles here:
-NeoBundle 'mhartington/oceanic-next'
-NeoBundle 'jscappini/material.vim' " theme
-NeoBundle 'flazz/vim-colorschemes' "themes pack
-NeoBundle 'bling/vim-airline' " status line
-" NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'Raimondi/delimitMate'
-NeoBundle 'Valloric/MatchTagAlways'
+  " Let dein manage dein
+  " Required:
+  call dein#add("$HOME/.cache/dein/repos/github.com/Shougo/dein.vim")
 
-" NeoBundle 'Shougo/neosnippet.vim'
-" NeoBundle 'Shougo/neosnippet-snippets'
+  " Add or remove your plugins here like this:
+  "call dein#add('Shougo/neosnippet.vim')
+  "call dein#add('Shougo/neosnippet-snippets')
+  
+call dein#add('equalsraf/neovim-gui-shim')
+
+" Themes:
+call dein#add('mhartington/oceanic-next')
+call dein#add('rakr/vim-one')
+
+call dein#add('bling/vim-airline') " status line
+
+call dein#add('jiangmiao/auto-pairs')
+call dein#add('alvan/vim-closetag')
+call dein#add('andymass/vim-matchup')
+call dein#add('Valloric/MatchTagAlways')
+
 " VCS
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+call dein#add('tpope/vim-fugitive')
+call dein#add('airblade/vim-gitgutter')
 
-NeoBundle 'ctrlpvim/ctrlp.vim' " find file by mask 
-NeoBundle 'majutsushi/tagbar'
+call dein#add('ctrlpvim/ctrlp.vim') " find file by mask 
+call dein#add('majutsushi/tagbar')
 
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+call dein#add('scrooloose/nerdtree')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
 
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'sjl/gundo.vim'
+call dein#add('tpope/vim-surround')
+call dein#add('godlygeek/tabular')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('mbbill/undotree')
 
 " Complete
-NeoBundle 'Shougo/deoplete.nvim'
-NeoBundle 'Shougo/neco-vim'        "  search in source for deoplete
-NeoBundle 'Shougo/neoinclude.vim'  " search in included files for deoplete
-NeoBundle 'Shougo/neco-syntax'     " search in syntax for deoplete
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('Shougo/neco-vim')        "  search in source for deoplete
+call dein#add('Shougo/neoinclude.vim')  " search in included files for deoplete
+call dein#add('Shougo/neco-syntax')     " search in syntax for deoplete
 
 
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rvm'
-NeoBundle 'ngmy/vim-rubocop'
-NeoBundle 'tpope/vim-endwise'      " autocomplete ruby blocks
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-rvm')
+call dein#add('tpope/vim-endwise')      " autocomplete ruby blocks
 
-NeoBundle 'othree/yajs.vim'
-NeoBundle 'digitaltoad/vim-jade'
-NeoBundle "kchmck/vim-coffee-script.git"
-NeoBundle "pangloss/vim-javascript.git"
-NeoBundle "cakebaker/scss-syntax.vim.git"
-NeoBundle "tpope/vim-haml.git"
-NeoBundle "tpope/vim-markdown.git"
+call dein#add('othree/yajs.vim')
+call dein#add('digitaltoad/vim-jade')
+call dein#add('pangloss/vim-javascript.git')
+call dein#add('cakebaker/scss-syntax.vim.git')
+call dein#add('tpope/vim-haml.git')
+call dein#add('tpope/vim-markdown.git')
 
-NeoBundle 'scrooloose/syntastic' " syntax check
+call dein#add('w0rp/ale') " syntax check
 
-NeoBundle 'gorodinskiy/vim-coloresque' " highlight css color
+call dein#add('gorodinskiy/vim-coloresque') " highlight css color
 
 
-" Required:
-call neobundle#end()
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+
+
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+if dein#check_install()
+  call dein#install()
+endif
 
-" let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
+"End dein.vim config -------------------------
 
 
-filetype plugin indent on    
+
+
 
 set modelines=0
 set history=1000
@@ -134,6 +141,10 @@ set cursorline " highlight line with cursor
 " ---
 syntax enable
 
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 colorscheme OceanicNext
 
 set background=dark
@@ -172,6 +183,7 @@ set winheight=5
 set winminheight=5
 set winheight=999
 
+" set g:loaded_matchit = 1
 
 if executable('ag')
   " Use ag over grep
@@ -190,16 +202,8 @@ let g:cssColorVimDoNotMessMyUpdatetime = 1 " css-color plugin configuration
 
 let g:ctrlp_custom_ignore='node_modules\|bower_components\|doc\|coverage\|tmp\|log)'
 
-let g:vimrubocop_config = '~/.config/nvim/rubocop.yml'
-
-" Settings for syntastic (from readme)
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:airline#extensions#ale#enabled = 1
+let g:ale_open_list = 1
 
 " NERDTree
 let NERDTreeShowBookmarks = 0
@@ -242,8 +246,12 @@ inoremap <C-j> <C-Down>
 map === mmgg=G`m^zz
 
 " Easy commenting
-nnoremap // :TComment<CR>
-vnoremap // :TComment<CR>
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+nmap // <plug>NERDCommenterToggle
+vmap // <plug>NERDCommenterToggle gv
 
 " search with regex"
 nnoremap / /\v
@@ -272,7 +280,7 @@ nnoremap <leader><leader> <c-^> " jump between two last buffers
 nnoremap j gj
 nnoremap k gk
 
-nnoremap <F5> :GundoToggle<CR> " show gundo window
+nnoremap <F5> :UndotreeToggle<CR>
 
 " ---
 " Ruby/Rails
@@ -293,9 +301,9 @@ map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
 " Skip to Model, View or Controller
-map <Leader>m :Rmodel 
-map <Leader>v :Rview 
-map <Leader>c :Rcontroller 
+map <Leader>m :Emodel 
+map <Leader>v :Eview 
+map <Leader>c :Econtroller 
 
 " Other files to consider Ruby
 au BufRead,BufNewFile Gemfile,Rakefile,Thorfile,config.ru,Vagrantfile,Guardfile,Capfile set ft=ruby
@@ -323,8 +331,6 @@ au BufRead,BufNewFile *.scss set filetype=scss
 
 " TagList
 set tags=./tags;
-" Support for https://github.com/ivalkeen/guard-ctags-bundler
-set tags+=gems.tags
 map <leader>l :TagbarToggle<cr>
 " Generate ctags for all bundled gems as well
 map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
