@@ -6,10 +6,6 @@ NeoVim
 The Silver Searcher (http://geoff.greer.fm/ag/)
 Universal Ctags
 
-## Quick Install
-
-    curl https://raw.github.com/andrieiev/vimfiles/master/bootstrap.sh -o - | sh
-
 ## Basic Mappings
 
 The leader is mapped to `,`

@@ -204,6 +204,7 @@ let g:ctrlp_custom_ignore='node_modules\|bower_components\|doc\|coverage\|tmp\|l
 
 let g:airline#extensions#ale#enabled = 1
 let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 1
 
 " NERDTree
 let NERDTreeShowBookmarks = 0
